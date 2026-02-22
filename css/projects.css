@@ -1,0 +1,51 @@
+/* projects.css */
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+  gap: 2px;
+  padding: 0 var(--pad);
+  margin-bottom: 4rem;
+}
+
+.proj-list-card {
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.plc-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+.plc-aspects { display: flex; gap: 0.35rem; }
+
+.plc-title {
+  font-family: var(--display);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text);
+}
+.plc-subtitle {
+  font-family: var(--display);
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+}
+.plc-summary {
+  font-size: 13.5px;
+  line-height: 1.65;
+  color: var(--text-dim);
+  flex: 1;
+}
+.plc-tags { display: flex; flex-wrap: wrap; gap: 0.35rem; margin-top: 0.25rem; }
+
+@media (max-width: 640px) {
+  .projects-grid { grid-template-columns: 1fr; padding: 0 1rem; }
+}

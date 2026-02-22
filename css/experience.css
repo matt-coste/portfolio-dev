@@ -1,0 +1,58 @@
+/* experience.css */
+
+.detail-wrap {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 3rem var(--pad) 6rem;
+}
+
+.detail-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 2rem;
+  padding-bottom: 2.5rem;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 2.5rem;
+}
+.detail-header-left { flex: 1; }
+
+.detail-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+}
+.detail-title {
+  font-family: var(--display);
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  margin-bottom: 0.4rem;
+}
+.detail-company {
+  font-family: var(--display);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 1rem;
+}
+.detail-summary {
+  font-size: 14.5px;
+  line-height: 1.7;
+  color: var(--text-dim);
+  max-width: 55ch;
+}
+
+.detail-env { margin-bottom: 2rem; }
+
+@media (max-width: 640px) {
+  .detail-header { flex-direction: column; }
+  .detail-header-right { width: 100%; }
+  .aspect-toggle { width: 100%; }
+  .aspect-btn { flex: 1; text-align: center; }
+}

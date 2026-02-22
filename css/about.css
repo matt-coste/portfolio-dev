@@ -1,0 +1,316 @@
+/* about.css */
+
+.about-wrap {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 3rem var(--pad) 6rem;
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+}
+
+/* ── HERO ─────────────────────────────────────────────────── */
+.about-hero {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 4rem;
+  align-items: start;
+  padding-bottom: 4rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.about-hero-text .page-label { margin-bottom: 0.5rem; }
+.about-hero-text .page-title { margin-bottom: 0.75rem; }
+
+.about-titles {
+  font-family: var(--display);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  color: var(--accent);
+  margin-bottom: 1.5rem;
+}
+
+.about-summary {
+  font-size: 15px;
+  line-height: 1.75;
+  color: var(--text-dim);
+  max-width: 52ch;
+  margin-bottom: 2rem;
+}
+
+.about-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-bottom: 1.5rem;
+}
+.about-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: var(--display);
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  padding: 0.35rem 0.75rem;
+  border: 1px solid var(--border-s);
+  border-radius: var(--radius);
+  transition: color .2s, border-color .2s, background .2s;
+}
+.about-link:hover { color: var(--accent); border-color: var(--accent); background: var(--accent-dim); }
+.about-link-icon { font-size: 0.85rem; }
+
+.about-email {
+  font-family: var(--display);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: var(--text-dim);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color .2s;
+}
+.about-email:hover { color: var(--accent); }
+
+/* Photo */
+.about-photo-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  flex-shrink: 0;
+}
+.about-photo-frame {
+  width: 200px;
+  height: 240px;
+  border: 1px solid var(--border-s);
+  position: relative;
+  overflow: hidden;
+  background: var(--surface);
+}
+.about-photo {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.about-photo-placeholder {
+  position: absolute; inset: 0;
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--display);
+  font-size: 4rem;
+  font-weight: 800;
+  color: var(--text-muted);
+}
+.about-photo-frame:not(.no-photo) .about-photo-placeholder { display: none; }
+.about-photo-frame.no-photo .about-photo { display: none; }
+
+.photo-portfolio-link {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--display);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  transition: color .2s;
+  white-space: nowrap;
+}
+.photo-portfolio-link:hover { color: var(--accent); }
+
+/* ── SECTIONS ─────────────────────────────────────────────── */
+.about-section { display: flex; flex-direction: column; gap: 1.25rem; }
+
+/* CV buttons */
+.cv-buttons {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+.cv-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.85rem 1.25rem;
+  border: 1px solid var(--border-s);
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: border-color .2s, background .2s;
+  text-decoration: none;
+  color: inherit;
+  background: var(--surface);
+  font-family: var(--body);
+}
+.cv-btn:hover { border-color: var(--accent); background: var(--accent-dim); }
+.cv-btn-primary { border-color: var(--accent2); }
+.cv-btn-primary:hover { border-color: var(--accent2); background: var(--accent2-dim); }
+
+.cv-btn-icon {
+  font-size: 1.1rem;
+  color: var(--text-dim);
+}
+.cv-btn-label {
+  display: block;
+  font-family: var(--display);
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--text);
+}
+.cv-btn-size {
+  display: block;
+  font-size: 11px;
+  color: var(--text-dim);
+  margin-top: 0.1rem;
+}
+
+/* Hobbies */
+.hobbies-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 0.5rem;
+}
+.hobby-card {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 1.25rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+.hobby-icon { font-size: 1.5rem; flex-shrink: 0; }
+.hobby-label {
+  font-family: var(--display);
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 0.1rem;
+}
+.hobby-desc { font-size: 12px; color: var(--text-dim); }
+
+/* Soft skills */
+.soft-skills-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.soft-skill-tag {
+  font-family: var(--display);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  color: var(--text);
+  background: var(--surface);
+  border: 1px solid var(--border-s);
+  padding: 0.4rem 0.85rem;
+  border-radius: 2px;
+}
+
+/* Contact CTA */
+.about-contact-section { align-items: flex-start; }
+.contact-cta {
+  font-family: var(--display);
+  font-size: clamp(1.1rem, 2.5vw, 1.6rem);
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  color: var(--text);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  transition: color .2s;
+}
+.contact-cta:hover { color: var(--accent); }
+
+/* ── CV MODAL ─────────────────────────────────────────────── */
+.cv-modal {
+  position: fixed; inset: 0;
+  z-index: 9999;
+  background: rgba(5,5,6,0.85);
+  backdrop-filter: blur(8px);
+  display: flex; align-items: center; justify-content: center;
+  opacity: 0; pointer-events: none;
+  transition: opacity .3s;
+}
+.cv-modal.open { opacity: 1; pointer-events: all; }
+
+.cv-modal-box {
+  background: var(--bg2);
+  border: 1px solid var(--border-s);
+  padding: 2.5rem;
+  width: min(420px, 90vw);
+  position: relative;
+}
+.cv-modal-close {
+  position: absolute; top: 1rem; right: 1.25rem;
+  font-size: 1rem; color: var(--text-dim);
+  transition: color .2s;
+}
+.cv-modal-close:hover { color: var(--text); }
+
+.cv-modal-title {
+  font-family: var(--display);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: var(--text);
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+.cv-modal-options {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 0.75rem;
+}
+
+/* Mail copy button */
+.about-mail-btn {
+  background: none;
+  font-family: var(--body);
+  cursor: pointer;
+}
+.about-mail-btn:hover { color: var(--accent); border-color: var(--accent); background: var(--accent-dim); }
+.cv-modal-opt {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 1.5rem 1rem;
+  background: var(--surface);
+  border: 1px solid var(--border-s);
+  text-decoration: none;
+  color: inherit;
+  transition: border-color .2s, background .2s;
+  border-radius: var(--radius);
+}
+.cv-modal-opt:hover { border-color: var(--accent); background: var(--accent-dim); }
+.cv-modal-fmt {
+  font-family: var(--display);
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: var(--text);
+}
+.cv-modal-sz {
+  font-size: 11px;
+  color: var(--text-dim);
+}
+.cv-modal-arrow {
+  font-size: 1rem;
+  color: var(--accent);
+  margin-top: 0.25rem;
+}
+
+/* ── RESPONSIVE ─────────────────────────────────────────────── */
+@media (max-width: 700px) {
+  .about-hero {
+    grid-template-columns: 1fr;
+  }
+  .about-photo-wrap {
+    flex-direction: row;
+    align-items: flex-start;
+    order: -1;
+  }
+  .about-photo-frame { width: 120px; height: 144px; }
+}
