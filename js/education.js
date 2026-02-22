@@ -29,7 +29,7 @@ function render() {
           <h2 class="edu-institution">${edu.institution}</h2>
           <p class="edu-location">${edu.location}</p>
         </div>
-        <img style="width:180px" src=${edu.logo}></img>
+        <img class="edu-logo" src="${edu.logo}" alt="${edu.institution}">
       </div>
       <div class="edu-card-body">
         <div class="edu-degree">${tField(edu.degree)}</div>
