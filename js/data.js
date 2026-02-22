@@ -8,6 +8,7 @@ const DATA = {
   // ── PERSONAL INFO ──────────────────────────────────────────
   personal: {
     name: 'Matt COSTE',
+    name_header: 'MATT COSTE',
     titles: {
       en: ['Software Developer', 'UX/UI Designer', 'Photographer'],
       fr: ['Développeur Logiciel', 'Designer UX/UI', 'Photographe'],

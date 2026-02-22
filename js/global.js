@@ -142,7 +142,7 @@ function initHeader(activePage) {
 
   header.innerHTML = `
     <a class="site-logo" href="index.html">
-      <span class="logo-name">${DATA.personal.name}</span>
+      <span class="logo-name">${DATA.personal.name_header}</span>
     </a>
     <div class="header-right">
       <nav>
