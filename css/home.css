@@ -27,7 +27,7 @@
   pointer-events: none;
 }
 
-/* Gradient overlay to fade out grid at edges */
+/* Gradient overlay */
 .hero::after {
   content: '';
   position: absolute;
@@ -108,7 +108,6 @@
   align-items: center;
   gap: 0.6rem;
   padding-bottom: 0.25em;
-  /* room for descenders */
 }
 
 .hero-title-item .dot-sm {
@@ -190,96 +189,104 @@
   background: var(--accent-dim);
 }
 
-/* Floating tech cards (right side decoration) */
+/* ── TECH GRAPH (remplace les hero-card-float) ──────────────── */
 .hero-grid-deco {
   position: relative;
-  height: 420px;
+  height: 480px;
   z-index: 1;
+  /* overflow visible pour que les nœuds projet puissent déborder légèrement */
+  overflow: visible;
 }
 
-.hero-card-float {
+/* SVG de traits */
+.graph-svg {
   position: absolute;
-  display: flex;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: visible;
+}
+
+/* Nœud générique */
+.graph-node {
+  position: absolute;
+  display: inline-flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 0.75rem;
-  padding: 0.6rem 1rem;
+  gap: 0.5rem;
+  padding: 0.45rem 0.85rem;
   background: var(--surface);
   border: 1px solid var(--border-s);
   border-radius: var(--radius-md);
   font-family: var(--display);
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 600;
   color: var(--text-dim);
   white-space: nowrap;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
-  animation: floatCard 4s ease-in-out infinite;
+  cursor: pointer;
+  user-select: none;
+  text-decoration: none;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+  transition: border-color .2s, color .2s, background .2s, transform .2s, box-shadow .2s;
 }
 
-.float-dot {
-  width: 8px;
-  height: 8px;
+.graph-node:hover {
+  border-color: var(--accent);
+  color: var(--text);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+}
+
+/* Nœud techno actif */
+.graph-node.active {
+  border-color: var(--accent2);
+  background: var(--accent2-dim);
+  color: var(--text);
+}
+
+.node-dot {
+  width: 7px;
+  height: 7px;
   border-radius: 50%;
+  flex-shrink: 0;
 }
 
-.card-float-1 {
-  top: 12%;
-  left: 5%;
-  animation-delay: 0s;
+/* Nœuds projet — apparaissent dynamiquement */
+.proj-node {
+  background: var(--bg2);
+  border-color: var(--accent);
+  color: var(--accent);
+  font-size: 10.5px;
+  /* Position absolue gérée en JS via left/top + translate(-50%,-50%) */
+  transform: translate(-50%, -50%) scale(0.8);
+  opacity: 0;
+  pointer-events: none;
+  transition:
+    opacity .25s ease,
+    transform .25s ease,
+    border-color .2s,
+    background .2s,
+    box-shadow .2s;
 }
 
-.card-float-2 {
-  top: 28%;
-  left: 45%;
-  animation-delay: .8s;
+.proj-node.visible {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+  pointer-events: all;
 }
 
-.card-float-3 {
-  top: 42%;
-  left: 10%;
-  animation-delay: 1.6s;
+.proj-node:hover {
+  background: var(--accent-dim);
+  transform: translate(-50%, -50%) scale(1.06);
+  box-shadow: 0 8px 24px rgba(212, 168, 83, 0.18);
 }
 
-.card-float-4 {
-  top: 65%;
-  left: 50%;
-  animation-delay: 0.4s;
-}
-
-.card-float-5 {
-  top: 80%;
-  left: 15%;
-  animation-delay: 1.2s;
-}
-
-.card-float-6 {
-  top: 92%;
-  left: 40%;
-  animation-delay: 0.8s;
-}
-
-.card-float-7 {
-  top: 50%;
-  left: 34%;
-  animation-delay: 0.4s;
-}
-
-.card-float-8 {
-  top: 7%;
-  left: 25%;
-  animation-delay: 1.4s;
-}
-
-@keyframes floatCard {
-
-  0%,
-  100% {
-    transform: translateY(0);
-  }
-
-  50% {
-    transform: translateY(-8px);
-  }
+/* Traits SVG pointillés */
+.graph-line {
+  stroke: var(--accent);
+  stroke-width: 1.2;
+  stroke-dasharray: 5 4;
+  opacity: 0.4;
 }
 
 /* ── STATS BAR ──────────────────────────────────────────────── */
@@ -418,7 +425,7 @@
   content: ' →';
 }
 
-/* Home experience cards */
+/* Experience cards */
 .exp-card {
   text-decoration: none;
   color: inherit;
@@ -457,7 +464,7 @@
   margin-top: 0.25rem;
 }
 
-/* Home project cards */
+/* Project cards */
 .proj-card {
   text-decoration: none;
   color: inherit;

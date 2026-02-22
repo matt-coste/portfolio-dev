@@ -77,6 +77,9 @@ const DATA = {
         { value: '1', label: 'Compétitions gagnées' },
       ],
     },
+    graphExcludeTags: ['Git / GitHub', 'GitHub Actions (CI/CD)', 'HTML5', 'CSS', 'Markdown', 'Python', 'JavaScript', 'AI/ML', 'AI', 'RAG',
+      'Scala', 'Rust', 'React', 'GitHub Pages'
+    ],
   },
 
   // ── EDUCATION ───────────────────────────────────────────────
@@ -412,7 +415,7 @@ const DATA = {
       subtitle: { en: 'EPO CodeFest Competition — 2025', fr: 'Compétition CodeFest EPO — 2025' },
       type: 'pro',
       badge: { en: 'Competition', fr: 'Compétition' },
-      tags: ['Vue.js', 'Python', 'AI/ML', 'Figma'],
+      tags: ['Vue.js', 'Python', 'AI/ML', 'Figma', 'Wireframing', 'Prototyping'],
       aspects: ['dev', 'ux'],
       figmaUrl: null,
       images: [
@@ -536,7 +539,7 @@ const DATA = {
       subtitle: { en: 'IA Pau Competition — Winner 🏆 — 2025', fr: 'Compétition IA Pau — Gagnant 🏆 — 2025' },
       type: 'pro',
       badge: { en: 'Competition · Winner', fr: 'Compétition · Gagnant' },
-      tags: ['Vue.js', 'Python', 'RAG', 'AI', 'Figma'],
+      tags: ['Vue.js', 'Python', 'RAG', 'AI', 'Figma', 'Wireframing', 'Prototyping'],
       aspects: ['dev', 'ux'],
       figmaUrl: null,
       images: [], // Format: [{ src: 'assets/projects/id/screen.jpg', label: { en: 'Title', fr: 'Titre' } }]
@@ -722,7 +725,7 @@ const DATA = {
       subtitle: { en: 'CY Tech — 2025', fr: 'CY Tech — 2025' },
       type: 'school',
       badge: { en: 'School', fr: 'Scolaire' },
-      tags: ['Angular', 'Rust', 'Python', 'PostgreSQL', 'Figma'],
+      tags: ['Angular', 'Rust', 'Python', 'PostgreSQL', 'Figma', 'Wireframing', 'Prototyping'],
       aspects: ['dev', 'ux'],
       figmaUrl: null,
       images: [], // Format: [{ src: 'assets/projects/id/screen.jpg', label: { en: 'Title', fr: 'Titre' } }]
@@ -894,7 +897,7 @@ const DATA = {
       subtitle: { en: 'CY Tech — 2023', fr: 'CY Tech — 2023' },
       type: 'school',
       badge: { en: 'School', fr: 'Scolaire' },
-      tags: ['HTML5', 'CSS', 'JavaScript', 'Java', 'Spring Boot'],
+      tags: ['HTML5', 'CSS', 'JavaScript', 'Java', 'Spring Boot', 'Wireframing', 'Prototyping'],
       aspects: ['dev', 'ux'],
       figmaUrl: null,
       images: [], // Format: [{ src: 'assets/projects/id/screen.jpg', label: { en: 'Title', fr: 'Titre' } }]
