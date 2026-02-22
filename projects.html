@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Projects — Matt Coste</title>
   <script>
-    (function(){
-      var t = localStorage.getItem('dev-theme') || 'dark';
-      var l = localStorage.getItem('dev-lang') || 'en';
+    (function () {
+      var t = localStorage.getItem('theme') || 'dark';
+      var l = localStorage.getItem('lang') || 'en';
       document.documentElement.setAttribute('data-theme', t);
       document.documentElement.setAttribute('lang', l);
     })();
@@ -15,6 +16,7 @@
   <link rel="stylesheet" href="css/global.css">
   <link rel="stylesheet" href="css/projects.css">
 </head>
+
 <body>
   <header id="site-header"></header>
   <nav id="mobile-menu" class="mobile-menu"></nav>
@@ -32,4 +34,5 @@
   <script src="js/global.js"></script>
   <script src="js/projects.js"></script>
 </body>
+
 </html>

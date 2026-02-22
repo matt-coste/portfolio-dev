@@ -5,8 +5,8 @@
 
 // ── BOOT ─────────────────────────────────────────────────────
 (function () {
-  const theme = localStorage.getItem('dev-theme') || 'dark';
-  const lang  = localStorage.getItem('dev-lang')  || 'en';
+  const theme = localStorage.getItem('theme') || 'dark';
+  const lang = localStorage.getItem('lang') || 'en';
   document.documentElement.setAttribute('data-theme', theme);
   document.documentElement.setAttribute('lang', lang);
 })();
@@ -79,15 +79,15 @@ const I18N = {
 
 // ── STATE ────────────────────────────────────────────────────
 const State = {
-  _theme: localStorage.getItem('dev-theme') || 'dark',
-  _lang:  localStorage.getItem('dev-lang')  || 'en',
+  _theme: localStorage.getItem('theme') || 'dark',
+  _lang: localStorage.getItem('lang') || 'en',
 
   get theme() { return this._theme; },
-  get lang()  { return this._lang; },
+  get lang() { return this._lang; },
 
   setTheme(t) {
     this._theme = t;
-    localStorage.setItem('dev-theme', t);
+    localStorage.setItem('theme', t);
     document.documentElement.setAttribute('data-theme', t);
     const btn = document.querySelector('.theme-toggle');
     if (btn) btn.textContent = t === 'dark' ? '☀' : '☾';
@@ -95,7 +95,7 @@ const State = {
 
   setLang(l) {
     this._lang = l;
-    localStorage.setItem('dev-lang', l);
+    localStorage.setItem('lang', l);
     document.documentElement.setAttribute('lang', l);
     applyTranslations();
     const btn = document.querySelector('.lang-toggle');
@@ -104,7 +104,7 @@ const State = {
   },
 
   toggleTheme() { this.setTheme(this._theme === 'dark' ? 'light' : 'dark'); },
-  toggleLang()  { this.setLang(this._lang === 'en' ? 'fr' : 'en'); },
+  toggleLang() { this.setLang(this._lang === 'en' ? 'fr' : 'en'); },
 };
 
 function t(key) {
@@ -126,19 +126,19 @@ function applyTranslations() {
 // ── HEADER ───────────────────────────────────────────────────
 function initHeader(activePage) {
   const pages = [
-    { id: 'home',       key: 'nav_home',       href: 'index.html' },
-    { id: 'skills',     key: 'nav_skills',     href: 'skills.html' },
+    { id: 'home', key: 'nav_home', href: 'index.html' },
+    { id: 'skills', key: 'nav_skills', href: 'skills.html' },
     { id: 'experience', key: 'nav_experience', href: 'experiences.html' },
-    { id: 'projects',   key: 'nav_projects',   href: 'projects.html' },
-    { id: 'education',  key: 'nav_education',  href: 'education.html' },
-    { id: 'about',      key: 'nav_about',      href: 'about.html' },
+    { id: 'projects', key: 'nav_projects', href: 'projects.html' },
+    { id: 'education', key: 'nav_education', href: 'education.html' },
+    { id: 'about', key: 'nav_about', href: 'about.html' },
   ];
 
   const header = document.getElementById('site-header');
   if (!header) return;
 
   const themeIcon = State.theme === 'dark' ? '☀' : '☾';
-  const langLabel = State.lang  === 'en'   ? 'FR' : 'EN';
+  const langLabel = State.lang === 'en' ? 'FR' : 'EN';
 
   header.innerHTML = `
     <a class="site-logo" href="index.html">
@@ -163,22 +163,18 @@ function initHeader(activePage) {
   `;
 
   // Mobile menu
-  let mobileMenu = document.getElementById('mobile-menu');
-  if (!mobileMenu) {
-    mobileMenu = document.createElement('nav');
-    mobileMenu.id = 'mobile-menu';
-    mobileMenu.className = 'mobile-menu';
-    mobileMenu.innerHTML = pages.map(p => `
-      <a href="${p.href}" data-i18n="${p.key}" ${p.id === activePage ? 'class="active"' : ''}>${t(p.key)}</a>
-    `).join('');
-    header.insertAdjacentElement('afterend', mobileMenu);
-  }
+  // Remplace tout le bloc "Mobile menu" dans initHeader()
+  const mobileMenu = document.getElementById('mobile-menu');
+  mobileMenu.innerHTML = pages.map(p => `
+  <a href="${p.href}" data-i18n="${p.key}" ${p.id === activePage ? 'class="active"' : ''}>${t(p.key)}</a>
+`).join('');
+
 
   document.getElementById('theme-toggle').addEventListener('click', () => State.toggleTheme());
-  document.getElementById('lang-toggle').addEventListener('click',  () => State.toggleLang());
+  document.getElementById('lang-toggle').addEventListener('click', () => State.toggleLang());
   document.getElementById('burger').addEventListener('click', () => {
     const burger = document.getElementById('burger');
-    const menu   = document.getElementById('mobile-menu');
+    const menu = document.getElementById('mobile-menu');
     burger.classList.toggle('open');
     menu.classList.toggle('open');
   });
@@ -232,10 +228,10 @@ function revealOnScroll(elements, threshold = 0.07) {
 // ── TYPE LABEL ───────────────────────────────────────────────
 function typeLabel(type) {
   const map = {
-    cdi:        { en: 'Full-time',  fr: 'CDI' },
+    cdi: { en: 'Full-time', fr: 'CDI' },
     alternance: { en: 'Work-study', fr: 'Alternance' },
-    stage:      { en: 'Internship', fr: 'Stage' },
-    cdd:        { en: 'Fixed-term', fr: 'CDD' },
+    stage: { en: 'Internship', fr: 'Stage' },
+    cdd: { en: 'Fixed-term', fr: 'CDD' },
   };
   return tField(map[type] || { en: type, fr: type });
 }
