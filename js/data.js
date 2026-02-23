@@ -30,8 +30,8 @@ const DATA = {
     cvs: {
       ats: {
         // One file per language — point to the right PDF for each
-        en: { file: 'assets/cv-ats-en.pdf', size: '120 KB' },
-        fr: { file: 'assets/cv-ats-fr.pdf', size: '120 KB' },
+        en: { file: 'assets/cv-ats-en.pdf', size: '304 KB' },
+        fr: { file: 'assets/cv-ats-fr.pdf', size: '307 KB' },
         label: { en: 'ATS Resume', fr: 'CV ATS' },
       },
       design: {
