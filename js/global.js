@@ -141,9 +141,16 @@ function initHeader(activePage) {
   const langLabel = State.lang === 'en' ? 'FR' : 'EN';
 
   header.innerHTML = `
+  <div class="header-left">
+    <a class="home-back-btn" href="matt-coste.github.io">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+       <path d="M8 1L1 7.5V15H6V10.5H10V15H15V7.5L8 1Z"/>
+      </svg>
+    </a>
     <a class="site-logo" href="index.html">
       <span class="logo-name">${DATA.personal.name_header}</span>
     </a>
+  </div>
     <div class="header-right">
       <nav>
         <ul class="site-nav">
